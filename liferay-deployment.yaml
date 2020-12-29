@@ -24,7 +24,7 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 100Mi
+      storage: 300Mi
 
 
 ---
@@ -72,14 +72,14 @@ spec:
           value: "true"
         - name: LIFERAY_REDIRECT_PERIOD_URL_PERIOD_SECURITY_PERIOD_MODE #La usaremos para permitir los redirect en el cluster
           value: "domain"
-        image: liferay/portal:7.3.1-ga2
+        image: liferay/portal:7.3.5-ga6
         resources:
           requests: #Recursos que se aprovisionan al memomento de arrancar el pod
             memory: "2048Mi"
-            cpu: "2"
+            cpu: "0.2"
           limits: #Limite de recursos que podrá disponer el pod
             memory: "4098Mi"
-            cpu: "3"
+            cpu: "2"
         name: liferay 
         ports: #puertos abiertos en el contenedor
         - containerPort: 11311
